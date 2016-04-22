@@ -75,7 +75,7 @@ def calculator(sp):
 
         final.append(cir_len)
 
-    return result
+    return result #flags
 
 file = open("results.txt", "w") #write the results to a text file
 for value in calculator(1): #change 1 to whichever symmetric power you want
