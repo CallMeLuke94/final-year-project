@@ -1,5 +1,3 @@
-# Lets do SL_4!
-
 import math
 
 increment1 = 180 #PI/increment1 is the step size around the sphere
@@ -35,7 +33,7 @@ def c(theta):
 def d(theta, phi):
     return a(theta, phi) - b(theta, phi) - c(theta)
 
-# now we calculate
+# this function does the main calculations
 def calculator(sp):
     coef = coefficients(sp)
 
@@ -68,7 +66,6 @@ def calculator(sp):
         final = []
         circle_keys = []
 
-
         for key in range(min(circles), max(circles)):
             if circles[key] != circles[key+1]:
                 cir_len.append(round(key*360/increment2, 3))
@@ -76,47 +73,16 @@ def calculator(sp):
                 result[t] = circle_keys
                 #print(key, t)
 
-
-
-
         final.append(cir_len)
 
-    # for n in result:
-    #     print(n, result[n])
+    return result
 
-    return flags
+file = open("results.txt", "w") #write the results to a text file
+for value in calculator(1): #change 1 to whichever symmetric power you want
+    file.write(str(calculator(1)[value])+'\n')
+file.close()
 
-print(calculator(3)[157][286])
+#each new line of this file is an angle of longditude, each entry on a given line is an angle of latitude
 
-n = len(coefficients(3))
-thing = {}
-
-for i in range(n):
-    thing[i] = coefficients(3)[i]
-    print(i+1, thing[i])
-
-
-#most recent: [157][286] giving [10, 9, 8, 7, 6, 5, 16, 4, 3, 2, 15, 1, 14, 13, 12, 11, 19, 18, 17, 20]
-#previous attempt was [155][350]
-#[25][10] gave the first triangle?
-
-# 1 [3, 0, 0, 0]
-# 2 [2, 1, 0, 0]
-# 3 [1, 2, 0, 0]
-# 4 [0, 3, 0, 0]
-# 5 [2, 0, 1, 0]
-# 6 [1, 1, 1, 0]
-# 7 [0, 2, 1, 0]
-# 8 [1, 0, 2, 0]
-# 9 [0, 1, 2, 0]
-# 10 [0, 0, 3, 0]
-# 11 [2, 0, 0, 1]
-# 12 [1, 1, 0, 1]
-# 13 [0, 2, 0, 1]
-# 14 [1, 0, 1, 1]
-# 15 [0, 1, 1, 1]
-# 16 [0, 0, 2, 1]
-# 17 [1, 0, 0, 2]
-# 18 [0, 1, 0, 2]
-# 19 [0, 0, 1, 2]
-# 20 [0, 0, 0, 3]
+#to print a particular flag change line 78 to "return flags" and then uncomment the following line:
+#print(calculator(n)[theta][phi])
