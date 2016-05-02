@@ -1,7 +1,7 @@
 # final-year-project
 My final year project code!
 
-In my final year project I did some computations which, when written down by hand, were rather long and tedious. After doing these computations by hand it became clear that programming a computer to do them for me would be far easier. To understand the computations and the mathematics behind them, you will have to read my report (to be uploaded soon!).
+In my final year project I did some computations which, when written down by hand, were rather long and tedious. After doing these computations by hand it became clear that programming a computer to do them for me would be far easier. To understand the computations and the mathematics behind them, you will have to read my report.
 
 Initially I wrote findingsl3.py to find the r-points of the building of SL3 and then wrote Animated_Complex.pde to animate the results. This animation can also be found here: http://www.openprocessing.org/sketch/226756
 
