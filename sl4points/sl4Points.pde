@@ -5,7 +5,6 @@ float ex = 70;
 float phi;
 float theta;
 float[][] result;
-float s = 1;
 float g = 10;
 float step = 5;
 float scl = 530;
@@ -73,9 +72,10 @@ void draw() {
       rotateZ(radians(theta));
       rotateY(radians(phi));
       translate(0, 0, r);
+      strokeWeight(1.5);
       stroke(0, 0, 0);
       fill(0, 0, 0);
-      ellipse(0, 0, s, s);
+      point(0, 0);
       popMatrix();
     }
   }
