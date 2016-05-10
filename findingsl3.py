@@ -1,5 +1,3 @@
-# Time to rewrite my final year project program!
-
 import math
 
 increment = 36000 #2PI/increment is the step size around the circle
@@ -25,7 +23,7 @@ def b(x):
 def c(x):
     return a(x) - b(x)
 
-# now the real calculations begin
+# now the calculations begin
 def calculator(sp):
     coef = coefficients(sp)
 
@@ -46,22 +44,25 @@ def calculator(sp):
             values[t] = expressions
         result[indexes[t]] = values[t]
 
-    print(result[2])
-
     for x in result:
         result[x] = sorted(result[x], key = result[x].get)
 
-    print(result[2])
-
     fin_len = [] # simply used to check how many unique flags we get
-
+    points = []
     for key in range(min(result), max(result)):
         if result[key] != result[key+1]:
             fin_len.append(key*360/increment)
-            #print(key*360/increment) #uncomment to see what the angles are
+            points.append(key*360/increment) #uncomment to see what the angles are
 
-    return len(fin_len) # the number of points we get at a given symmetric power
+    return points #len(fin_len)
 
-for i in range(1, 41):
-    print(calculator(i))
-    print('')
+file = open("results.txt", "w") #write the results to a text file
+for n in range(1, 51): #change 51 to whichever symmetric power you want
+    file.write(str(calculator(n))+'\n')
+file.close()
+
+#each new line of the text file shows a list of angles for the points at that symmetric power
+
+#to see only the number of points at a given symmetric power, change line 57 to "return len(fin_len)" and then uncomment the following:
+#for n in range(1, 51):
+#   print(calculator(n))

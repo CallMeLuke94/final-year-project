@@ -1,4 +1,4 @@
-# Time to rewrite my final year project program!
+# This program finds and animates the r-points all in one go.
 
 i = 1
 R = 200
@@ -11,7 +11,7 @@ increment = 3600 #2PI/increment is the step size around the circle
 radius = 100
 
 # this function generates the coefficients of a,b,a-b
-def coefficients(n): 
+def coefficients(n):
     result = []
     for i in range(n+1):
         for j in range(n-i+1):
@@ -30,7 +30,7 @@ def b(x):
 def c(x):
     return a(x) - b(x)
 
-# now the real calculations begin
+# this function does the main computations
 def calculator(sp):
     coef = coefficients(sp)
 
@@ -45,7 +45,7 @@ def calculator(sp):
     for t in range(increment):
         indexes.append(t)
         values.append(t)
-        expressions = {} # lables the elements: 0->a, 1->b, 2->a-b 
+        expressions = {} # lables the elements: 0->a, 1->b, 2->a-b
         for n in range(len(coef)):
             expressions[n+1] = round(inequality(n, t), 3)
             values[t] = expressions
@@ -61,7 +61,7 @@ def calculator(sp):
             fin_len.append(key*360/increment) # the length of this is the number of points we get at a given symmetric power
             points.append(key*360/increment) #uncomment to see what the angles are
 
-    return points 
+    return points
 
 # for i in range(1, 41):
 #    print(calculator(i))
@@ -72,14 +72,14 @@ def setup():
     size(430, 430)
     smooth()
     frameRate(5)
-  
+
     background(150, 150, 200)
     stroke(0)
     noFill()
     ellipse(width/2, height/2, R*2, R*2)
-    
+
     noLoop()
-    
+
 def draw():
     background(150, 150, 200)
     stroke(0)
@@ -88,22 +88,20 @@ def draw():
     pushMatrix();
     translate(width/2, height/2)
     for theta in calculator(i):
-        A = 0 #(90-theta)%90
-        x = R*cos(radians(theta-A))
-        y = R*sin(radians(theta-A))
+        x = R*cos(radians(theta))
+        y = R*sin(radians(theta))
         noStroke()
         fill(255)
         ellipse(x, -y, r, r)
         global j
         j = j + 1
-        #print(theta)
     popMatrix()
-    
+
     noStroke();
     fill(150, 150, 200);
     rectMode(CENTER);
     rect(width/2, height/2, 250, 250);
- 
+
     textAlign(CENTER);
     noStroke();
     fill(255);
@@ -113,10 +111,10 @@ def draw():
     text("Number of points: " + str(j), width/2, height/2);
 
 def mousePressed():
-    save("sl3image.png")
-    print("image saved")
+    #save("sl3image.png")   #uncomment to save a png image
+    #print("image saved")
 
-def keyPressed():
+def keyPressed():   #use the UP and DOWN arrow keys to change the symmetric power
     global i
     global j
     if (key == CODED):
