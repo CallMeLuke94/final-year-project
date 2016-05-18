@@ -1,17 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>HelloWorld</title>
-    <script src="libraries/p5.js" type="text/javascript"></script>
-
-    <script src="libraries/p5.dom.js" type="text/javascript"></script>
-    <script src="libraries/p5.sound.js" type="text/javascript"></script>
-
-    <script src="sketch.js" type="text/javascript"></script>
-
-    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+    <title>The Quest To Prove The Generalised Centre Conjecture by CallMeLuke94</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
+    <section class="page-header">
+      <h1 class="project-name">The Quest To Prove The Generalised Centre Conjecture</h1>
+      <h2 class="project-tagline">Investigating the structure of convex subsets of spherical buildings (using Python and Processing!).</h2>
+      <a href="https://github.com/CallMeLuke94/final-year-project" class="btn">View on GitHub</a>
+      <a href="https://github.com/CallMeLuke94/final-year-project/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/CallMeLuke94/final-year-project/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="an-explanation-of-the-code-used-to-create-the-images-in-my-project" class="anchor" href="#an-explanation-of-the-code-used-to-create-the-images-in-my-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An Explanation of the Code used to Create the Images in my Project</h1>
+
+<p><em>This page isn't quite finished, I will finish updating it soon!</em></p>
+
+<p>In my final year project I did some computations which, when written down by hand, were rather long and tedious. After doing these computations by hand it became clear that programming a computer to do them for me would be far easier. To understand the computations and the mathematics behind them, you will (unfortunately) have to read my report.</p>
+
+<p>Here I will briefly talk about each program so you have some idea of what they are trying to do.</p>
+
+<h2>
+<a id="code-for-sl3" class="anchor" href="#code-for-sl3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code For SL3</h2>
+
+<p>Initially I wrote findingsl3.py to find the r-points of the building of SL3 and then wrote Animated_Complex.pde to animate the results. This animation can also be found on <a href="http://www.openprocessing.org/sketch/226756">my Open Processing page</a>.</p>
+
+<p>With the release of PythonMode for Processing3 I then wrote SL3.pyde which allows you to control which symmetric power you see with the arrow keys, and has no upper limit for the symmetric power as each one is generated every time you press a key.</p>
+
+<h2>
+<a id="code-for-sl4" class="anchor" href="#code-for-sl4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code For SL4</h2>
+
+<p>Having successfully written a program to do the SL3 case for me, it was time to move up to SL4. The additional dimension made this code far more complicated and hard to read but (after spending a good 6 months checking it) I can say with confidence that it does work (mostly... see later).</p>
+
+<p>The real challenge with SL4 was not writing the python code, but plotting the results in a useful way. sl4points.pde (together with the output text files) make an interactive, animated representation of an appartment of Delta raised to the 1st, 2nd, and 3rd symmetric powers. The 4th symmetric power is too messy to be worth presenting here, although this repository does give you the all tools to investigate further.</p>
+
+<h2>
+<a id="checking-a-claim-i-make-in-my-report" class="anchor" href="#checking-a-claim-i-make-in-my-report" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Checking a Claim I Make in my Report</h2>
+
+<p>Finally, in my report - in the last paragraph of Example 3.1 - I say that it is possible to write a program to check a particular claim. equation31.py is such a program. (The name refers to Equation 3.1 in the report which this program is mimicking.)</p>
+
+<h2>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known Issues</h2>
+
+<p>As I mention above, the python code I wrote to generate the r-points of Delta seems to work for the purposes of finding an example of a quadrilateral region for the SL4 case when r = 3. However, the code itself does have some known issues.</p>
+
+<p>Most notably: the code output is not independent of the step size. Changing the values of the global variables increment1 and increment2 should result in an output with r-points at the same angles (maybe some are missed if the step size is too small, but the r-points we do find should be in the same place!). This is currently not what happens... Any help resolving this issue would be greatly appreciated.</p>
+
+<p>Less importantly, my visualisations of Delta for SL3 do not seem to plot the points in the correct place. However, the number of points is correct and for all intents and purposes (with respect to proving rigorous mathematical statements) that is all that matters. Of course it would be nice to fix this. There is probably something wrong in the python code that generates the points, again the output is not independent of the step size, so the java and python versions of the visualisation do not agree. But as I said, the number of points is correct so this issue is really just cosmetic.</p>
+
+<p>There are probably some more issues, I will update this section as when I find them, or remember what they are.</p>
+
+<p><strong>Hope this helps. Please do contact me with any questions you have.</strong></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/CallMeLuke94/final-year-project">The Quest To Prove The Generalised Centre Conjecture</a> is maintained by <a href="https://github.com/CallMeLuke94">CallMeLuke94</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
   </body>
 </html>
