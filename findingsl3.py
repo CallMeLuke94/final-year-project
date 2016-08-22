@@ -1,6 +1,6 @@
 import math
 
-increment = 36000 #2PI/increment is the step size around the circle
+increment = 36000 # 2PI/increment is the step size around the circle
 radius = 100
 
 # this function generates the coefficients of a,b,a-b
